@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using Application.TaxCalculator;
@@ -13,9 +15,11 @@ namespace TaxJar
     {
         private readonly HttpClient _client;
 
-        public TaxJarCalculator(HttpClient client)
+        public TaxJarCalculator(HttpClient client, string token)
         {
             _client = client;
+            _client.BaseAddress = new Uri("https://api.taxjar.com");
+            _client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
         }
 
 
@@ -29,7 +33,7 @@ namespace TaxJar
             TaxJarTaxOrderEntry taxForTaxOrderEntry = new TaxJarTaxOrderEntry(order);
             var data = new StringContent(JsonConvert.SerializeObject(taxForTaxOrderEntry), Encoding.UTF8, "application/json");
             
-           var res = await _client.PostAsync("https://api.taxjar.com/v2/taxes", data);
+           var res = await _client.PostAsync("/v2/taxes", data);
 
            if (res.IsSuccessStatusCode)
            {
