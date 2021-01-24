@@ -10,10 +10,10 @@ namespace Core.Classes
         public Address ToAddress { get; private set; }
         public IEnumerable<Address> NexusAddress { get; private set; }
         public decimal? Amount { get; private set; }
-        public decimal Shipping { get; private set; }
+        public decimal? Shipping { get; private set; }
         public IEnumerable<LineItem> Items { get; private set; }
 
-        public Order(Guid id, Address fromAddress, Address toAddress, IEnumerable<Address> nexusAddress, decimal? amount, decimal shipping, IEnumerable<LineItem> items)
+        public Order(Guid id, Address fromAddress, Address toAddress, IEnumerable<Address> nexusAddress, decimal? amount, decimal? shipping, IEnumerable<LineItem> items)
         {
             Id = id;
             FromAddress = fromAddress;

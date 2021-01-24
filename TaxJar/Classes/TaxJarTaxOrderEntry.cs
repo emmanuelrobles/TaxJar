@@ -20,7 +20,7 @@ namespace TaxJar.Classes
         [JsonProperty("to_city")] public string ToCity { get; private set; }
         [JsonProperty("to_street")] public string ToStreet { get; private set; }
         
-        [JsonProperty("amount")] public decimal Amount { get; private set; }
+        [JsonProperty("amount")] public decimal? Amount { get; private set; }
         [JsonProperty("shipping")] public decimal Shipping { get; private set; }
         
         [JsonProperty("nexus_addresses")] public IEnumerable<TaxJarNexusAddress> NexusAddress { get; private set; }
@@ -55,7 +55,7 @@ namespace TaxJar.Classes
                     throw new ArgumentException("To Address State cannot be empty", nameof(order.ToAddress.State));
                 
                 if(order.ToAddress.Country.ToUpper() == "US" && string.IsNullOrWhiteSpace(order.ToAddress.ZipCode)) 
-                    throw new ArgumentException("To Address Zipcode cannot be empty ", nameof(order.ToAddress.ZipCode));
+                    throw new ArgumentException("To Address Zipcode cannot be empty", nameof(order.ToAddress.ZipCode));
             }
             ToCountry = order.ToAddress.Country;
             ToZipCode = order.ToAddress.ZipCode;
@@ -64,9 +64,9 @@ namespace TaxJar.Classes
             ToStreet = order.ToAddress.Street;
 
             if (!order.Items.Any() && order.Amount == null) throw new ArgumentException("You should have either and amount or line items");
-            if (order.Amount != null) Amount = (decimal) order.Amount;
+            Amount = order.Amount;
 
-            Shipping = order.Shipping;
+            Shipping = order.Shipping ?? throw new ArgumentNullException(nameof(order.Shipping),"Shipping is required");
 
             NexusAddress = order.NexusAddress.Select(na => new TaxJarNexusAddress(na));
             Items = order.Items.Select(i => new TaxJarLineItems(i));
