@@ -15,7 +15,7 @@ namespace TaxJar.Classes
             switch (country)
             {
                 case "US":
-                    return new TaxJarTaxJarUsTaxJarTaxJarRateLocation(address, client);
+                    return new TaxJarUsRateLocation(address, client);
                 default:
                     throw new NotImplementedException();
             }

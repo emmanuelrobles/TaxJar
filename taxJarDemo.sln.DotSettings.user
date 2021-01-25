@@ -7,5 +7,6 @@
     &lt;TestId&gt;xUnit::6CEE6B28-B0B9-44E5-9432-EDD4A510795C::net5.0::TaxJarTest.TaxJarCalculatorTest.GetTaxForOrder_Error&lt;/TestId&gt;
     &lt;TestId&gt;xUnit::6CEE6B28-B0B9-44E5-9432-EDD4A510795C::net5.0::TaxJarTest.TaxJarCalculatorTest.GetTaxForOrder_Success&lt;/TestId&gt;
     &lt;TestId&gt;xUnit::6CEE6B28-B0B9-44E5-9432-EDD4A510795C::net5.0::TaxJarTest.TaxJarCalculatorTest&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::6CEE6B28-B0B9-44E5-9432-EDD4A510795C::net5.0::TaxJarTest.TaxJarRateLocationHttpTest.TaxJarRate_QS_Builder&lt;/TestId&gt;
   &lt;/TestAncestor&gt;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

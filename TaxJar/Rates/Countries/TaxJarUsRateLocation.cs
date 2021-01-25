@@ -8,16 +8,16 @@ using TaxJar.Exceptions;
 
 namespace TaxJar.Classes
 {
-    public class TaxJarTaxJarUsTaxJarTaxJarRateLocation : TaxJarTaxJarRateLocationHttp
+    public class TaxJarUsRateLocation : TaxJarRateLocationHttp
     {
 
-        public TaxJarTaxJarUsTaxJarTaxJarRateLocation(Address address, HttpClient client) : base(address, client)
+        public TaxJarUsRateLocation(Address address, HttpClient client) : base(address, client)
         {
         }
 
         public override async Task<IEnumerable<TaxRate>> GetTaxRatesAsync()
         {
-            var response = await _client.GetAsync($"/v2/rates/{_address.ZipCode}{GetQueryString()}");
+            var response = await _client.GetAsync($"/v2/rates/{_address.ZipCode}{GetQueryString(_address)}");
 
             if (response.IsSuccessStatusCode)
             {
