@@ -267,5 +267,42 @@ namespace TaxJarTest
             var ex = Assert.Throws<ArgumentNullException>(() => new TaxJarTaxOrderEntry(order));
             Assert.Equal($"Shipping is required (Parameter '{nameof(order.Shipping)}')", ex.Message);
         }
+
+        [Fact]
+        public void TaxJarOrderEntry_Amount_Line_Items()
+        {
+            var fromAddressWrongCountry = new Address(
+                Guid.NewGuid(),
+                "US",
+                "Fl",
+                "FL",
+                "city",
+                "street"
+            );
+
+            var toAddress = new Address(
+                Guid.NewGuid(),
+                "US",
+                "Fl",
+                "FL",
+                "city",
+                "street"
+            );
+            var orderNoItems = new Order(Guid.NewGuid(), fromAddressWrongCountry, toAddress, new List<Address>(), 1.5m, 1.5m,
+                new List<LineItem>());
+            Assert.NotNull(orderNoItems);
+
+            var item = new LineItem(
+                Guid.NewGuid(),
+                1,
+                "2001",
+                1.5m,
+                0.9m
+            );
+            
+            var orderNoAmount = new Order(Guid.NewGuid(), fromAddressWrongCountry, toAddress, new List<Address>(), null, 1.5m,
+                new []{item});
+            Assert.NotNull(orderNoAmount);
+        }
     }
 }
