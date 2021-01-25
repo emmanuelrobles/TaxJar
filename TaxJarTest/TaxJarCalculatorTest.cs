@@ -10,6 +10,7 @@ using Core.Classes;
 using Moq;
 using Moq.Protected;
 using TaxJar;
+using TaxJar.Classes;
 using TaxJar.Exceptions;
 using Xunit;
 
@@ -18,10 +19,11 @@ namespace TaxJarTest
     public class TaxJarCalculatorTest
     {
         private readonly Mock<HttpMessageHandler> _mockHttpMessageHandler;
-
+        private readonly TaxJarCalculator _taxJarCalculator;
         public TaxJarCalculatorTest()
         {
             _mockHttpMessageHandler = new Mock<HttpMessageHandler>();
+            _taxJarCalculator = new TaxJarCalculator(new HttpClient(_mockHttpMessageHandler.Object), "");
         }
         
         [Fact]
@@ -33,9 +35,6 @@ namespace TaxJarTest
                 {
                     StatusCode = HttpStatusCode.BadRequest
                 });
-
-            TaxJarCalculator taxJarCalculator =
-                new TaxJarCalculator(new HttpClient(_mockHttpMessageHandler.Object), "");
 
             var fromAddressWrongCountry = new Address(
                 Guid.NewGuid(),
@@ -58,7 +57,7 @@ namespace TaxJarTest
             var order = new Order(Guid.NewGuid(), fromAddressWrongCountry, toAddress, new List<Address>(), 15m, 1.5m,
                 new List<LineItem>());
 
-            await Assert.ThrowsAsync<TaxJarTaxesForOrderException>(() => taxJarCalculator.GetTaxForOrderAsync(order));
+            await Assert.ThrowsAsync<TaxJarTaxesForOrderException>(() => _taxJarCalculator.GetTaxForOrderAsync(order));
         }
 
         [Fact]
@@ -75,9 +74,6 @@ namespace TaxJarTest
                     Content = new StringContent(response, Encoding.UTF8, "application/json")
                 });
 
-            TaxJarCalculator taxJarCalculator =
-                new TaxJarCalculator(new HttpClient(_mockHttpMessageHandler.Object), "");
-
             var fromAddressWrongCountry = new Address(
                 Guid.NewGuid(),
                 "US",
@@ -98,11 +94,11 @@ namespace TaxJarTest
 
             var order = new Order(Guid.NewGuid(), fromAddressWrongCountry, toAddress, new List<Address>(), 15m, 1.5m,
                 new List<LineItem>());
-            var tax = await taxJarCalculator.GetTaxForOrderAsync(order);
+            var tax = await _taxJarCalculator.GetTaxForOrderAsync(order);
             
             Assert.Equal(1m, tax.Rate);
             Assert.Equal(2m, tax.TaxableAmount);
         }
-        
+
     }
 }

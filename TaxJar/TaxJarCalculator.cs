@@ -26,7 +26,11 @@ namespace TaxJar
 
         public Task<IEnumerable<TaxRate>> GetTaxRatesForAddressAsync(Address address)
         {
-            throw new System.NotImplementedException();
+            var rateLocationFactory = new TaxJarRateLocationHttpFactory();
+
+            var rateLocation = rateLocationFactory.GetRateLocationByAddress(address,_client);
+
+            return rateLocation.GetTaxRatesAsync();
         }
 
         public async Task<Tax> GetTaxForOrderAsync(Order order)
