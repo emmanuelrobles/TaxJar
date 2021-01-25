@@ -220,7 +220,7 @@ namespace TaxJarTest
             var fromAddressWrongCountry = new Address(
                 Guid.NewGuid(),
                 "US",
-                "Fl",
+                "12345",
                 "FL",
                 "city",
                 "street"
@@ -247,7 +247,7 @@ namespace TaxJarTest
             var fromAddressWrongCountry = new Address(
                 Guid.NewGuid(),
                 "US",
-                "Fl",
+                "12345",
                 "FL",
                 "city",
                 "street"
@@ -256,7 +256,7 @@ namespace TaxJarTest
             var toAddress = new Address(
                 Guid.NewGuid(),
                 "US",
-                "Fl",
+                "12345",
                 "FL",
                 "city",
                 "street"

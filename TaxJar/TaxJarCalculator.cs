@@ -8,6 +8,7 @@ using Application.TaxCalculator;
 using Core.Classes;
 using Newtonsoft.Json;
 using TaxJar.Classes;
+using TaxJar.Exceptions;
 
 namespace TaxJar
 {
@@ -41,7 +42,8 @@ namespace TaxJar
                return new Tax(content.tax.rate, content.tax.taxable_amount);
            }
 
-           return null; // Check with the Team if something is wrong what to do
+           throw new TaxJarTaxesForOrderException("Couldn't Get Rates for order");
+
         }
     }
 }
