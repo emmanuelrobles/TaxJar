@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Net.Http.Json;
 using System.Text;
 using System.Threading;
@@ -23,7 +24,14 @@ namespace TaxJarTest
         public TaxJarCalculatorTest()
         {
             _mockHttpMessageHandler = new Mock<HttpMessageHandler>();
-            _taxJarCalculator = new TaxJarCalculator(new HttpClient(_mockHttpMessageHandler.Object), "");
+
+            var client = new HttpClient(_mockHttpMessageHandler.Object);
+            client.BaseAddress = new Uri("https://api.taxjar.com");
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer","TOKEN GOES HERE");
+
+            ITaxJarRateLocationFactory rateLocationFactory = new TaxJarRateLocationHttpFactory(client);
+            
+            _taxJarCalculator = new TaxJarCalculator(client, rateLocationFactory);
         }
         
         [Fact]

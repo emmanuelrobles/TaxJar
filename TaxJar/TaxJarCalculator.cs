@@ -15,22 +15,20 @@ namespace TaxJar
     public class TaxJarCalculator : ITaxCalculator
     {
         private readonly HttpClient _client;
-
-        public TaxJarCalculator(HttpClient client, string token)
+        private readonly ITaxJarRateLocationFactory _rateLocationFactory;
+        
+        public TaxJarCalculator(HttpClient client, ITaxJarRateLocationFactory rateLocationFactory)
         {
+            _rateLocationFactory = rateLocationFactory;
             _client = client;
-            _client.BaseAddress = new Uri("https://api.taxjar.com");
-            _client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
         }
 
 
-        public Task<IEnumerable<TaxRate>> GetTaxRatesForAddressAsync(Address address)
+        public Task<TaxRate> GetTaxRateForAddressAsync(Address address)
         {
-            var rateLocationFactory = new TaxJarRateLocationHttpFactory();
+            var rateLocation = _rateLocationFactory.GetRateLocationByAddress(address);
 
-            var rateLocation = rateLocationFactory.GetRateLocationByAddress(address,_client);
-
-            return rateLocation.GetTaxRatesAsync();
+            return rateLocation.GetTaxRateAsync();
         }
 
         public async Task<Tax> GetTaxForOrderAsync(Order order)

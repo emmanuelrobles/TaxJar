@@ -17,6 +17,6 @@ namespace TaxJar.Classes
             
             _address = address;
         }
-        public abstract Task<IEnumerable<TaxRate>> GetTaxRatesAsync();
+        public abstract Task<TaxRate> GetTaxRateAsync();
     }
 }

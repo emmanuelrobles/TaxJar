@@ -6,7 +6,7 @@ namespace Application.TaxCalculator
 {
     public interface ITaxCalculator
     {
-        public Task<IEnumerable<TaxRate>> GetTaxRatesForAddressAsync(Address address);
+        public Task<TaxRate> GetTaxRateForAddressAsync(Address address);
         public Task<Tax> GetTaxForOrderAsync(Order order);
     }
 }
