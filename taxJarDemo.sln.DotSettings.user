@@ -1,17 +1,23 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=2a315ffc_002Ddb1b_002D4644_002Db5c2_002D65ec3054a57c/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="Test1" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
-  &lt;TestAncestor&gt;
-    &lt;TestId&gt;xUnit::6CEE6B28-B0B9-44E5-9432-EDD4A510795C::net5.0::TaxJarTest.TaxJarOrders&lt;/TestId&gt;
-    &lt;TestId&gt;xUnit::6CEE6B28-B0B9-44E5-9432-EDD4A510795C::net5.0::TaxJarTest.TaxJarNexusAddressTest.TaxJarNexusAddress_No_Country_Exception&lt;/TestId&gt;
-    &lt;TestId&gt;xUnit::6CEE6B28-B0B9-44E5-9432-EDD4A510795C::net5.0::TaxJarTest.TaxJarNexusAddressTest&lt;/TestId&gt;
-    &lt;TestId&gt;xUnit::6CEE6B28-B0B9-44E5-9432-EDD4A510795C::net5.0::TaxJarTest.TaxJarCalculatorTest.GetTaxForOrder_Error&lt;/TestId&gt;
-    &lt;TestId&gt;xUnit::6CEE6B28-B0B9-44E5-9432-EDD4A510795C::net5.0::TaxJarTest.TaxJarCalculatorTest.GetTaxForOrder_Success&lt;/TestId&gt;
-    &lt;TestId&gt;xUnit::6CEE6B28-B0B9-44E5-9432-EDD4A510795C::net5.0::TaxJarTest.TaxJarCalculatorTest&lt;/TestId&gt;
-    &lt;TestId&gt;xUnit::6CEE6B28-B0B9-44E5-9432-EDD4A510795C::net5.0::TaxJarTest.TaxJarRateLocationHttpTest.TaxJarRate_QS_Builder&lt;/TestId&gt;
-    &lt;TestId&gt;xUnit::6CEE6B28-B0B9-44E5-9432-EDD4A510795C::net5.0::TaxJarTest.TaxJarUSRateLocationHttpTest.GetRates_Error&lt;/TestId&gt;
-    &lt;TestId&gt;xUnit::6CEE6B28-B0B9-44E5-9432-EDD4A510795C::net5.0::TaxJarTest.TaxJarUSRateLocationHttpTest&lt;/TestId&gt;
-    &lt;TestId&gt;xUnit::6CEE6B28-B0B9-44E5-9432-EDD4A510795C::net5.0::TaxJarTest.TaxJarRateLocationHttpFactoryTest.GetLocation_US&lt;/TestId&gt;
-    &lt;TestId&gt;xUnit::6CEE6B28-B0B9-44E5-9432-EDD4A510795C::net5.0::TaxJarTest.TaxJarRateLocationHttpFactoryTest.GetLocation_Exception&lt;/TestId&gt;
-    &lt;TestId&gt;xUnit::6CEE6B28-B0B9-44E5-9432-EDD4A510795C::net5.0::TaxJarTest.TaxJarRateLocationHttpFactoryTest&lt;/TestId&gt;
-  &lt;/TestAncestor&gt;
+  &lt;Or&gt;
+    &lt;TestAncestor&gt;
+      &lt;TestId&gt;xUnit::6CEE6B28-B0B9-44E5-9432-EDD4A510795C::net5.0::TaxJarTest.TaxJarOrders&lt;/TestId&gt;
+      &lt;TestId&gt;xUnit::6CEE6B28-B0B9-44E5-9432-EDD4A510795C::net5.0::TaxJarTest.TaxJarNexusAddressTest.TaxJarNexusAddress_No_Country_Exception&lt;/TestId&gt;
+      &lt;TestId&gt;xUnit::6CEE6B28-B0B9-44E5-9432-EDD4A510795C::net5.0::TaxJarTest.TaxJarNexusAddressTest&lt;/TestId&gt;
+      &lt;TestId&gt;xUnit::6CEE6B28-B0B9-44E5-9432-EDD4A510795C::net5.0::TaxJarTest.TaxJarCalculatorTest.GetTaxForOrder_Error&lt;/TestId&gt;
+      &lt;TestId&gt;xUnit::6CEE6B28-B0B9-44E5-9432-EDD4A510795C::net5.0::TaxJarTest.TaxJarCalculatorTest.GetTaxForOrder_Success&lt;/TestId&gt;
+      &lt;TestId&gt;xUnit::6CEE6B28-B0B9-44E5-9432-EDD4A510795C::net5.0::TaxJarTest.TaxJarCalculatorTest&lt;/TestId&gt;
+      &lt;TestId&gt;xUnit::6CEE6B28-B0B9-44E5-9432-EDD4A510795C::net5.0::TaxJarTest.TaxJarRateLocationHttpTest.TaxJarRate_QS_Builder&lt;/TestId&gt;
+      &lt;TestId&gt;xUnit::6CEE6B28-B0B9-44E5-9432-EDD4A510795C::net5.0::TaxJarTest.TaxJarUSRateLocationHttpTest.GetRates_Error&lt;/TestId&gt;
+      &lt;TestId&gt;xUnit::6CEE6B28-B0B9-44E5-9432-EDD4A510795C::net5.0::TaxJarTest.TaxJarUSRateLocationHttpTest&lt;/TestId&gt;
+      &lt;TestId&gt;xUnit::6CEE6B28-B0B9-44E5-9432-EDD4A510795C::net5.0::TaxJarTest.TaxJarRateLocationHttpFactoryTest.GetLocation_US&lt;/TestId&gt;
+      &lt;TestId&gt;xUnit::6CEE6B28-B0B9-44E5-9432-EDD4A510795C::net5.0::TaxJarTest.TaxJarRateLocationHttpFactoryTest.GetLocation_Exception&lt;/TestId&gt;
+      &lt;TestId&gt;xUnit::6CEE6B28-B0B9-44E5-9432-EDD4A510795C::net5.0::TaxJarTest.TaxJarRateLocationHttpFactoryTest&lt;/TestId&gt;
+      &lt;TestId&gt;xUnit::680EC6C5-3311-4C57-9CAE-B9EBB1CFB87F::net5.0::TaxJarIntegrationTest.TaxJarCalculatorIntegrationTest.GetTaxForOrder_Success&lt;/TestId&gt;
+      &lt;TestId&gt;xUnit::680EC6C5-3311-4C57-9CAE-B9EBB1CFB87F::net5.0::TaxJarIntegrationTest.TaxJarCalculatorIntegrationTest.GetTaxForOrder_Error&lt;/TestId&gt;
+    &lt;/TestAncestor&gt;
+    &lt;Project Location="/home/emmanuel/Documents/work/TaxJar/TaxJarTest" Presentation="&amp;lt;Tests&amp;gt;\&amp;lt;TaxJarTest&amp;gt;" /&gt;
+    &lt;Project Location="/home/emmanuel/Documents/work/TaxJar/TaxJarIntegrationTest" Presentation="&amp;lt;Tests&amp;gt;\&amp;lt;TaxJarIntegrationTest&amp;gt;" /&gt;
+  &lt;/Or&gt;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
